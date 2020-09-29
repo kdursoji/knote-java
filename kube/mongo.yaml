@@ -22,26 +22,30 @@ spec:
 ---
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   name: mongo
-spec:
-  selector:
-    matchLabels:
+spec: 
+  selector: 
+    matchLabels: 
       app: mongo
-  template:
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         app: mongo
-    spec:
-      containers:
-        - name: mongo
-          image: image: mongo:3.6.17-xenial
-          ports:
-            - containerPort: 27017
-          volumeMounts:
-            - name: storage
+    spec: 
+      containers: 
+        - 
+          image: mongo
+          name: mongo
+          ports: 
+            - 
+              containerPort: 27017
+          volumeMounts: 
+            - 
               mountPath: /data/db
-      volumes:
-        - name: storage
-          persistentVolumeClaim:
+              name: storage
+      volumes: 
+        - 
+          name: storage
+          persistentVolumeClaim: 
             claimName: mongo-pvc
